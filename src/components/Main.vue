@@ -12,10 +12,10 @@
         <div>
             <ul>
                 <li class="film">
-                    <h4>Titolo</h4>
-                    <h5>titolo originale</h5>
-                    <h6>lingua</h6>
-                    <span>voto</span>
+                    <h4>{{movies[0].original_title}}</h4>
+                    <h5>{{movies[0].title}}</h5>
+                    <h6>{{movies[0].original_language}}</h6>
+                    <span>{{movies[0].vote_average.toFixed(0)/2}}</span>
                 </li>
             </ul>
         </div>
