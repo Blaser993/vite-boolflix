@@ -11,11 +11,12 @@
 
         <div>
             <ul>
-                <li class="film">
-                    <h4>{{movies[0].original_title}}</h4>
-                    <h5>{{movies[0].title}}</h5>
-                    <h6>{{movies[0].original_language}}</h6>
-                    <span>{{movies[0].vote_average.toFixed(0)/2}}</span>
+                <li class="film"
+                v-for="(film, i) in movies">
+                    <h4>{{movies[i].original_title}}</h4>
+                    <h5>{{movies[i].title}}</h5>
+                    <h6>{{movies[i].original_language}}</h6>
+                    <span>{{movies[i].vote_average.toFixed(0)/2}}</span>
                 </li>
             </ul>
         </div>
