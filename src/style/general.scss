@@ -1,0 +1,7 @@
+@use "./partials/reset.scss";
+@use "./partials/variables.scss";
+
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+}
