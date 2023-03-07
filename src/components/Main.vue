@@ -3,8 +3,8 @@
         <div class="container">
 
             <div class="filter">
-                <input class="input" type="text" placeholder="Inserisci il nome di un film o una parola chiave...">
-                <button>cerca</button>
+                <input class="input" type="text" placeholder="Inserisci il nome di un film o una parola chiave..." v-model="ricerca">
+                <button @click="onClick">cerca</button>
             </div>
         </div>
 
@@ -16,7 +16,7 @@
                     <h4>{{movies[i].original_title}}</h4>
                     <h5>{{movies[i].title}}</h5>
                     <h6>{{movies[i].original_language}}</h6>
-                    <span>{{movies[i].vote_average.toFixed(0)/2}}</span>
+                    <span>{{Math.floor(movies[i].vote_average.toFixed()/2)}}</span>
                 </li>
             </ul>
         </div>
@@ -29,18 +29,27 @@ import axios from "axios"
 	export default {
         data(){
             return {
-                movies: []
+                movies: [],
+                ricerca: ""
             }
         },
         methods: {
+            onClick(){
+               
+                this.fetchMovies()
+                console.log( this.ricerca, this.query)
+            },
             fetchMovies (){
+                const ricerca = this.ricerca
+
                 axios
                     .get("https://api.themoviedb.org/3/search/movie",{
                         params:{
                             api_key: 'e99307154c6dfb0b4750f6603256716d',
-                            query: "leggenda",
+                            query: ricerca,
                             page: 1,
-                        }})
+                        }
+                    })
                     .then((res) => {
                         console.log(res.data.results)
                         this.movies = res.data.results
