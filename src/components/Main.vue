@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "axios"
 
 	export default {
         data(){
@@ -45,12 +45,13 @@ import axios from "axios";
                         this.movies = res.data.results
                     })
                 },
-                
+            },
+            created(){
+                this.fetchMovies()
             }
-        },
-        created (){
-            this.fetchMovies()
+                
         }
+  
 </script>
 
 <style lang="scss" scoped> 
