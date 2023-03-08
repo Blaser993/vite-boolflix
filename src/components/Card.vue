@@ -1,16 +1,12 @@
 <template>
     <li class="card"
-    v-for="item in store.movies" :key="item.id">
-        <h4>{{item.original_title}}</h4>
-        <h5>{{item.title}}</h5>
-        
-
-
+    v-for="item in store.tvs" :key="item.id">
+        <h4>{{item.original_title}} {{item.original_name}}</h4>
+        <h5>{{item.title}} {{item.title}}</h5>
         <img
         v-if:="addFlag(item.original_language) != null"
          class="iconFlag" ciao :src="addFlag(item.original_language)" alt="">
         <h6 v-else>{{ item.original_language }}</h6>
-
         <span>{{(Math.fround(item.vote_average/2).toFixed())}}</span>
     </li>
 </template>
@@ -21,7 +17,8 @@ import store from "../store"
         props: {
             item:{
                 type: Object,
-                required: true
+                required: true,
+
             }
         },
         data(){
@@ -53,6 +50,10 @@ import store from "../store"
 </script>
 
 <style lang="scss" scoped>
+
+.card{
+        padding: .5rem;
+    }
  .iconFlag{
     max-width: 16px;
  }

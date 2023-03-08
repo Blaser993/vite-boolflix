@@ -1,12 +1,9 @@
 <template>
     <main>
 
-
-
-        <div>
+        <div class="container">
             <ul>
-
-                <Card  v-for="film in store.movies" :key="film.id" :item="film"></Card>
+                <Card class="card" v-for="item in store.movies" :key="item.id" :item="item"></Card>
             </ul>
         </div>
     </main>
@@ -23,8 +20,6 @@ import Card from"./Card.vue"
         data(){
             return {
                 store,
-                movies: [],
-                ricerca: ""
             }
         },
                 
@@ -37,7 +32,5 @@ import Card from"./Card.vue"
         width: 90%;
     }
 
-    .film{
-        padding: .5rem;
-    }
+
 </style>

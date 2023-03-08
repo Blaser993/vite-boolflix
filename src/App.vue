@@ -28,8 +28,8 @@ import axios from "axios"
     methods:{
       fetchData(){
         console.log("fetch data")
-        
         this.fetchMovies()
+        this.fetchTvs()
       },
       fetchMovies (){
                 const urlmovie = this.store.BASE_URL + '/search/movie';
@@ -38,8 +38,8 @@ import axios from "axios"
                         params:{
                             api_key:this.store.API_KEY,
                             query: this.store.ricerca,
-                            page: 1,
-                            language: "it-IT",
+                            page: 1,   
+                                                 
                         }
                     })
                     .then((res) => {
@@ -50,7 +50,27 @@ import axios from "axios"
                       this.store.movies= []
                     })
                 },
-            },
+
+      fetchTvs (){
+                const urltv = this.store.BASE_URL + '/search/tv';
+                axios
+                    .get(urltv,{
+                        params:{
+                            api_key:this.store.API_KEY,
+                            query: this.store.ricerca,
+                            page: 1,    
+                                                  
+                        }
+                    })
+                    .then((res) => {
+                        const results = res.data.results
+                        this.store.tvs = results
+                        console.log(results)
+                    }).catch(err => {
+                      this.store.tvs = []
+                    })
+                },
+    },
     }
 	
 </script>
