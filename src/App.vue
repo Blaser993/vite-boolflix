@@ -58,4 +58,6 @@ import axios from "axios"
 <style lang="scss"> 
   @use "./style/general.scss";
 
+  
+
 </style>
