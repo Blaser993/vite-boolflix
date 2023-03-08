@@ -3,7 +3,7 @@ import {reactive} from "vue";
 const store = reactive({
     movies: [],
     tv: [],
-    ricerca:"",
+    ricerca:"hombre",
     flags:[
         "https://flagcdn.com/16x12/it.png",
         "https://flagcdn.com/16x12/jp.png",

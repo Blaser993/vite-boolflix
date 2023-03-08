@@ -8,8 +8,8 @@
          class="iconFlag" :src="addFlag(language)" alt="">
         <h6 v-else>{{item.original_language}} </h6> -->
 
-        <img  class="iconFlag" :src="addFlag(item.original_language)" alt="">
-        <h6>{{item.original_language}} </h6>
+        <img class="iconFlag" :src="addFlag(item.original_language)" alt="">
+        
 
         <span>{{(Math.fround(item.vote_average/2).toFixed())}}</span>
     </li>
@@ -46,7 +46,7 @@ import store from "../store"
                 }else if (language === "en"){
                     return store.flags[4]
 
-                }
+                } // else return `<h6>{{${item.original_language}}} </h6>`
             }
         }
 	}
