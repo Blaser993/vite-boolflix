@@ -1,13 +1,13 @@
 <template>
-    <li class="card"
-    v-for="item in store.tvs" :key="item.id">
-        <h4>{{item.original_title}} {{item.original_name}}</h4>
-        <h5>{{item.title}} {{item.title}}</h5>
+    <li class="card">
+        <h3>{{item.title}} {{item.name}}</h3>
+        <h5>Titolo originale: {{item.original_title}} {{item.original_name}}</h5>
+        <h6>Lingua: </h6>
         <img
         v-if:="addFlag(item.original_language) != null"
          class="iconFlag" ciao :src="addFlag(item.original_language)" alt="">
-        <h6 v-else>{{ item.original_language }}</h6>
-        <span>{{(Math.fround(item.vote_average/2).toFixed())}}</span>
+        <h6 v-else> {{ item.original_language }}</h6>
+        <h4>{{(Math.fround(item.vote_average/2).toFixed())}}</h4>
     </li>
 </template>
 
@@ -18,7 +18,7 @@ import store from "../store"
             item:{
                 type: Object,
                 required: true,
-
+                
             }
         },
         data(){
@@ -56,5 +56,12 @@ import store from "../store"
     }
  .iconFlag{
     max-width: 16px;
+    display: inline-block;
+   
+ }
+
+ h6{
+    display: inline-block;
+    margin-right: .25rem;
  }
 </style>

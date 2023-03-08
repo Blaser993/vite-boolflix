@@ -3,7 +3,12 @@
 
         <div class="container">
             <ul>
+                <h2>Film</h2>
                 <Card class="card" v-for="item in store.movies" :key="item.id" :item="item"></Card>
+            </ul>
+            <ul>
+                <h2>Serie tv</h2>
+                <Card class="card" v-for="item in store.tvs" :key="item.id" :item="item"></Card>
             </ul>
         </div>
     </main>
