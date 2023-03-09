@@ -15,7 +15,9 @@
          <!-- <h4>{{(Math.fround(item.vote_average/2).toFixed())}}</h4>
         <font-awesome-icon icon="fa-solid fa-star" /> -->
 
-        <h4 v-for="vote in voteStar(item.vote_average)"> </h4>
+        <h4 v-for="index in voteStar(item.vote_average)" :key="index">
+            <font-awesome-icon icon="fa-solid fa-star"/>
+        </h4>
         
     </li>
 </template>
@@ -61,12 +63,12 @@ import store from "../store"
                }
                 return 'https://image.tmdb.org/t/p/' + 'w342' + url
             },
-            voteStar(stars){
-                for (let i; i < (Math.fround(stars/2).toFixed()); i++){
-                    star =  `<font-awesome-icon icon="fa-solid fa-star"/>`
-                    return star
+            voteStar(stars){   
+               
+                console.log(Math.fround(stars/2).toFixed())
+                    return Math.round(stars/2)
                 }
-            }
+            
 
         },
 
