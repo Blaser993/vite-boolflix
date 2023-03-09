@@ -1,6 +1,6 @@
 <template>
     <li class="card">
-        <img :src="imgUrl(item.movies.backdrop_path)" alt="">
+        <img :src="imgUrl(item.backdrop_path)" alt="">
         <h3>{{item.title}} {{item.name}}</h3>
         <h5>Titolo originale: {{item.original_title}} {{item.original_name}}</h5>
         <h6>Lingua: </h6>
@@ -49,9 +49,12 @@ import store from "../store"
                 }  else return null
             },
             imgUrl(url){
-                url = this.item.movies.backdrop_path
+               if (url === null){
+                url = '/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'
+               }
                 return 'https://image.tmdb.org/t/p/' + 'w342' + url
             }
+
         },
     
 
