@@ -2,13 +2,13 @@
     <main>
 
         <div class="container">
-            <ul>
-                <h2>Film</h2>
-                <Card class="card" v-for="item in store.movies" :key="item.id" :item="item"></Card>
+            <h2 class="title">Film</h2>
+            <ul class="cards">
+                <Card  v-for="item in store.movies" :key="item.id" :item="item"></Card>
             </ul>
-            <ul>
-                <h2>Serie tv</h2>
-                <Card class="card" v-for="item in store.tvs" :key="item.id" :item="item"></Card>
+            <h2 class="title">Serie tv</h2>
+            <ul class="cards">
+                <Card  v-for="item in store.tvs" :key="item.id" :item="item"></Card>
             </ul>
         </div>
     </main>
@@ -33,8 +33,21 @@ import Card from"./Card.vue"
 </script>
 
 <style lang="scss" scoped> 
+
+
     .input{
         width: 90%;
+    }
+
+    .cards{
+        
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+    }
+
+    .title{
+        font-size: 48px;
+        padding-top: 2rem;
     }
 
 
