@@ -82,12 +82,8 @@ import store from "../store"
             totalStar(stars){
                 return 5 - Math.round(stars/2)
             }
-            
 
         },
-
-   
-    
 
         }
 
@@ -101,13 +97,19 @@ import store from "../store"
 }
 
 .wrapper{
+    flex-basis: 0;
+    flex-grow: 1;
     position: relative;
-    height: 100%;
+    height: fit-content;
 }
 
 .poster{
-    height: 100%;
+    flex-basis: 0;
+    flex-direction: column;
+    margin: auto;
+
     object-fit: contain;
+    
 }
 
 .info{

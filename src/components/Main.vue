@@ -34,7 +34,9 @@ import Card from"./Card.vue"
 
 <style lang="scss" scoped> 
 
-
+main{
+   padding:0 2rem; 
+}
     .input{
         width: 90%;
     }
