@@ -12,12 +12,15 @@
          class="iconFlag" ciao :src="addFlag(item.original_language)" alt="">
         <h6 v-else>( {{ item.original_language }} )</h6>
 
-         <!-- <h4>{{(Math.fround(item.vote_average/2).toFixed())}}</h4>
-        <font-awesome-icon icon="fa-solid fa-star" /> -->
+        <div>
+            <span v-for="index in voteStar(item.vote_average)" :key="index">
+                <font-awesome-icon icon="fa-solid fa-star"/>
+            </span>
+            <span v-for="index in totalStar(item.vote_average)" :key="index">
+                <font-awesome-icon icon="fa-regular fa-star"/>
+            </span>
+        </div>
 
-        <h4 v-for="index in voteStar(item.vote_average)" :key="index">
-            <font-awesome-icon icon="fa-solid fa-star"/>
-        </h4>
         
     </li>
 </template>
@@ -63,11 +66,14 @@ import store from "../store"
                }
                 return 'https://image.tmdb.org/t/p/' + 'w342' + url
             },
-            voteStar(stars){   
-               
+            voteStar(stars){    
                 console.log(Math.fround(stars/2).toFixed())
                     return Math.round(stars/2)
-                }
+            },
+            totalStar(stars){
+                
+                return 5 - Math.round(stars/2)
+            }
             
 
         },
