@@ -6,8 +6,9 @@
         <img
         v-if:="addFlag(item.original_language) != null"
          class="iconFlag" ciao :src="addFlag(item.original_language)" alt="">
-        <h6 v-else> {{ item.original_language }}</h6>
+        <h6 v-else>( {{ item.original_language }} )</h6>
         <h4>{{(Math.fround(item.vote_average/2).toFixed())}}</h4>
+        <font-awesome-icon icon="fa-solid fa-star" />
     </li>
 </template>
 
@@ -45,7 +46,8 @@ import store from "../store"
 
                 }  else return null
             }
-        }
+        },
+
 	}
 </script>
 
