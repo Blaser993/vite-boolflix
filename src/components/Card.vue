@@ -1,5 +1,6 @@
 <template>
     <li class="card">
+        <img :src="imgUrl(item.movies.backdrop_path)" alt="">
         <h3>{{item.title}} {{item.name}}</h3>
         <h5>Titolo originale: {{item.original_title}} {{item.original_name}}</h5>
         <h6>Lingua: </h6>
@@ -25,6 +26,7 @@ import store from "../store"
         data(){
             return{
                 store
+
             }
         },
         methods:{
@@ -45,10 +47,17 @@ import store from "../store"
                     return store.flags[5]
 
                 }  else return null
+            },
+            imgUrl(url){
+                url = this.item.movies.backdrop_path
+                return 'https://image.tmdb.org/t/p/' + 'w342' + url
             }
         },
+    
 
-	}
+        }
+
+
 </script>
 
 <style lang="scss" scoped>

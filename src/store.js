@@ -2,7 +2,10 @@ import {reactive} from "vue";
 
 const store = reactive({
 
-    
+    // imgUrl:[
+    //     'https://image.tmdb.org/t/p/' + 'w342' + '${movies.backdrop_path}'
+
+    // ],
     movies: [],
     tvs: [],
     ricerca:"",
