@@ -1,15 +1,22 @@
 <template>
     <li class="card">
+
         <img :src="imgUrl(item.backdrop_path)" alt="">
+
         <h3>{{item.title}} {{item.name}}</h3>
         <h5>Titolo originale: {{item.original_title}} {{item.original_name}}</h5>
+
         <h6>Lingua: </h6>
         <img
         v-if:="addFlag(item.original_language) != null"
          class="iconFlag" ciao :src="addFlag(item.original_language)" alt="">
         <h6 v-else>( {{ item.original_language }} )</h6>
-        <h4>{{(Math.fround(item.vote_average/2).toFixed())}}</h4>
-        <font-awesome-icon icon="fa-solid fa-star" />
+
+         <!-- <h4>{{(Math.fround(item.vote_average/2).toFixed())}}</h4>
+        <font-awesome-icon icon="fa-solid fa-star" /> -->
+
+        <h4 v-for="vote in voteStar(item.vote_average)"> </h4>
+        
     </li>
 </template>
 
@@ -53,9 +60,17 @@ import store from "../store"
                 url = '/wwemzKWzjKYJFfCeiB57q3r4Bcm.png'
                }
                 return 'https://image.tmdb.org/t/p/' + 'w342' + url
+            },
+            voteStar(stars){
+                for (let i; i < (Math.fround(stars/2).toFixed()); i++){
+                    star =  `<font-awesome-icon icon="fa-solid fa-star"/>`
+                    return star
+                }
             }
 
         },
+
+   
     
 
         }
